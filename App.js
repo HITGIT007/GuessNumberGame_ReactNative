@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   screen: {
     height: '90%',
     flex: 1,
-    marginHorizontal:40,
+    
     borderWidth: 1,
     borderColor: "thistle",
     borderRadius: 20,
