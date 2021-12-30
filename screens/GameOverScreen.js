@@ -3,13 +3,14 @@ import {View,
     Text, 
     StyleSheet, 
     Button, 
-    TouchableWithoutFeedback,
-    Keyboard,
-    Alert} from 'react-native'
+    } from 'react-native'
 const GameOverScreen = (props) => {
     return (
-        <View>
+        <View style={styles.screen}>
             <Text>The Game is over</Text>
+            <Text>Number of Rounds: {props.roundsNumber}</Text>
+            <Text>Number was: {props.userNumber}</Text>
+            <Button title="NEW GAME" onPress={props.onRestart}/>
         </View>
     )
 }
@@ -19,6 +20,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        color: 'white',
+        backgroundColor: 'yellow',
     }
 })
 

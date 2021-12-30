@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 //useRef hook allows you to create object which you can bind to inputs
 //Does not re-render 
+//useEffect allows you to run side effects or allow you to run logic after 
+//every render cycle
 import {View, 
     Text, 
     StyleSheet, 
@@ -28,9 +30,17 @@ const GameScreen = (props) => {
         generateRandomBetween(1,100, props.userChoice)
         );
     
+    const [rounds, setRounds] = useState(0)
     const currentLow = useRef(1);
     const currentHigh = useRef(100); 
 
+    const {userChoice, onGameOver} = props;
+    
+    useEffect(() =>{
+        if(currentGuess === props.userChoice){
+            props.onGameOver(rounds);
+        }
+    }, [currentGuess, userChoice, onGameOver]);
     
     const nextGuessHandler = direction => {
         if((direction === 'lower' && currentGuess < props.userChoice) || 
@@ -49,6 +59,7 @@ const GameScreen = (props) => {
 
         const nextNumber = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
         setCurrentGuess(nextNumber);
+        setRounds(curRounds => curRounds + 1) 
     };
     
 
