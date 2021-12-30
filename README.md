@@ -8,7 +8,7 @@ It can run in both Android and iOS systems. It is made with React Native.
 
 ## Demo
 
-https://drive.google.com/file/d/1TcMmz2mDIbis1hIJrTOeN8wZfv_2ad0U/view?usp=sharing
+https://drive.google.com/file/d/1TjOMUy1kQQOFNvu22vCeuMWDnCNV_BCN/view?usp=sharing
 
 
 ## Deployment
