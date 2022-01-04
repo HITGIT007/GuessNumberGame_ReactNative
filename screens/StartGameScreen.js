@@ -10,6 +10,8 @@ import Card from '../components/Card'
 import Colors from '../constants/colors'
 import Input from '../components/Input'
 import NumberContainer from '../components/NumberContainer'
+import BodyText from '../components/BodyText'
+import TitleText from '../components/TitleText'
 
 const StartGameScreen = (props) => {
 
@@ -46,7 +48,7 @@ const StartGameScreen = (props) => {
 
         confirmedOutput = (
             <Card style={styles.summaryContainer}>
-                <Text>You Selected</Text>
+                <BodyText>You Selected</BodyText>
                 
                 <NumberContainer>{selectedNumber}</NumberContainer>
                 <Button title = "START GAME" onPress={()=> props.onStartGame(selectedNumber)}/>
@@ -59,11 +61,13 @@ const StartGameScreen = (props) => {
         <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss}}>
             <View style={styles.screen}>
                 <Card style={styles.inputContainer}>
-                    <Text style={styles.title}>
+                    <TitleText style={styles.title}>
                         Start A New Game!!
-                    </Text>
+                    </TitleText>
                     <View style={styles.inputContainer}> 
-                        <Text>Select A Number</Text>
+                        {/*For creating custom text Component .. You simply create your own text component and use it like BodyText below*/}
+                        {/*For creating custom text Component .. Or You simply create a constant*/}
+                        <BodyText>Select A Number</BodyText>
                         <Input style={styles.input}
                             blurOnSubmit
                             autoCapitalize = "none"
@@ -95,13 +99,14 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         alignItems: 'center',
+        
 
     },
 
     title:{
         fontSize: 20,
         marginVertical: 10,
-        
+        fontFamily: 'OpenSans-Bold',
     },
     inputContainer: {
         width: 300,
